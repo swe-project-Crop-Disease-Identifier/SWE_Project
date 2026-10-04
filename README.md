@@ -41,7 +41,7 @@ python -m http.server 5500
 npx serve -l 5500
 ```
 
-Then open [https://crop-disease-identifier.netlify.app] .
+Then open https://crop-disease-identifier.netlify.app .
 
 `npx serve` is the easiest option if you have Node installed.
 
