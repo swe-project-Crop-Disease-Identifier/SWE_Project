@@ -20,10 +20,12 @@
  * load  -> dynamic import returning an init function.
  * Lazy-loaded so the Home page never downloads the upload code.
  */
+import { initLang } from './lang.js';
+
 const PAGES = {
   check:  () => import('./upload.js').then((m) => m.initCheckPage),
   result: () => import('./result.js').then((m) => m.initResultPage),
-  help:   () => import('./help.js').then((m) => m.initHelpPage),
+  help:   () => import('./help.js').then((m)  => m.initHelpPage),
 };
 
 
@@ -191,6 +193,7 @@ function boot() {
   initImageFallbacks();
   initFooterYear();
   initLazyImages();
+  initLang();
   // initTypewriter(); // ← uncomment this to re-enable the typewriter effect
 
   const page = document.body.dataset.page;

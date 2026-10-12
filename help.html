@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Help &amp; FAQ — Crop Disease Identifier</title>
-  <meta name="description" content="Find answers to frequently asked questions about using the Crop Disease Identifier app.">
+  <meta name="description" content="Common questions from farmers about using Crop Disease Identifier.">
   <meta name="theme-color" content="#1E8E4E">
   <link rel="icon" type="image/png" href="assets/icons/logo (2).png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,14 +16,12 @@
 <body data-page="help">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- OFFLINE BANNER -->
   <div class="offline-banner" data-offline-banner role="status" hidden>
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none"
-         stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <path d="M1 1l22 22M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 3.5-2.3M19 13a10 10 0 0 0-4-2.5"/>
       <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/>
     </svg>
-    You are offline. You can still read this page.
+    <span data-i18n="offline.help">You are offline. You can still read this page.</span>
   </div>
 
   <!-- NAVBAR -->
@@ -33,357 +31,289 @@
         <span class="brand__mark" aria-hidden="true">
           <img src="assets/icons/logo (2).png" alt="" width="38" height="38" class="brand__logo-img">
         </span>
-        <span class="brand__name">Crop Disease Identifier</span>
+        <span class="brand__name" data-i18n="brand.name">Crop Disease Identifier</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="check.html">Check Disease</a>
-        <a href="about.html">About</a>
-        <a href="help.html" class="is-active" aria-current="page">Help</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="check.html" data-i18n="nav.check">Check Disease</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="help.html" class="is-active" aria-current="page" data-i18n="nav.help">Help</a>
       </nav>
       <span class="badge-farmer">
-        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 21s-7-4.4-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4C19 16.6 12 21 12 21Z"/>
         </svg>
-        Farmer Friendly
+        <span data-i18n="nav.farmer">Farmer Friendly</span>
       </span>
-      <button class="nav-toggle" type="button" data-nav-toggle
-              aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+      <button class="lang-toggle" type="button" id="lang-toggle" aria-label="Switch to Bangla" data-lang="en">বাংলা</button>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="mobile-nav" id="mobile-nav" hidden>
-      <a href="index.html">Home</a>
-      <a href="check.html">Check Disease</a>
-      <a href="about.html">About</a>
-      <a href="help.html" class="is-active" aria-current="page">Help</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="check.html" data-i18n="nav.check">Check Disease</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="help.html" class="is-active" data-i18n="nav.help">Help</a>
     </div>
   </header>
 
   <main id="main" class="help-v2">
     <div class="container">
 
-      <!-- PAGE HEADING -->
+      <!-- PAGE HEAD -->
       <div class="help-v2-head">
         <div class="help-v2-badge">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <circle cx="12" cy="12" r="10"/>
             <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/>
             <circle cx="12" cy="17" r=".5" fill="currentColor" stroke="none"/>
           </svg>
-          Help Center
+          <span data-i18n="help.badge">Help Center</span>
         </div>
-        <h1 class="help-v2-title">Help &amp; FAQ</h1>
-        <p class="help-v2-sub">Find answers to the most common questions about using Crop Disease Identifier.</p>
+        <h1 class="help-v2-title" data-i18n="help.title">Help &amp; FAQ</h1>
+        <p class="help-v2-sub" data-i18n="help.sub">Common questions from farmers — click any question to see the answer.</p>
       </div>
 
-      <!-- QUICK LINKS — 3 cards -->
+      <!-- QUICK LINKS -->
       <div class="help-v2-quicklinks">
         <a class="help-v2-ql" href="check.html">
           <span class="help-v2-ql-icon">📷</span>
           <span class="help-v2-ql-text">
-            <strong>Check a Leaf</strong>
-            <span>Upload your photo now</span>
+            <strong data-i18n="help.ql1.title">Check a Leaf</strong>
+            <span data-i18n="help.ql1.sub">Upload your photo now</span>
           </span>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <path d="M4 12h15m0 0-6-6m6 6-6 6"/>
-          </svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
         </a>
         <a class="help-v2-ql" href="about.html">
           <span class="help-v2-ql-icon">🌿</span>
           <span class="help-v2-ql-text">
-            <strong>Photo Tips</strong>
-            <span>How to take a good photo</span>
+            <strong data-i18n="help.ql2.title">Photo Tips</strong>
+            <span data-i18n="help.ql2.sub">How to take a good photo</span>
           </span>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <path d="M4 12h15m0 0-6-6m6 6-6 6"/>
-          </svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
         </a>
         <a class="help-v2-ql" href="about.html#crops">
           <span class="help-v2-ql-icon">🌾</span>
           <span class="help-v2-ql-text">
-            <strong>Supported Crops</strong>
-            <span>See which crops work</span>
+            <strong data-i18n="help.ql3.title">Supported Crops</strong>
+            <span data-i18n="help.ql3.sub">See which crops work</span>
           </span>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <path d="M4 12h15m0 0-6-6m6 6-6 6"/>
-          </svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
         </a>
       </div>
 
-      <!-- CATEGORY TABS -->
+      <!-- TABS -->
       <div class="help-v2-tabs" role="tablist" aria-label="FAQ categories">
-        <button class="help-v2-tab is-active" role="tab" aria-selected="true"
-                aria-controls="faq-general" data-tab="general">
-          General
-        </button>
-        <button class="help-v2-tab" role="tab" aria-selected="false"
-                aria-controls="faq-photo" data-tab="photo">
-          Photo &amp; Upload
-        </button>
-        <button class="help-v2-tab" role="tab" aria-selected="false"
-                aria-controls="faq-result" data-tab="result">
-          Results
-        </button>
-        <button class="help-v2-tab" role="tab" aria-selected="false"
-                aria-controls="faq-treatment" data-tab="treatment">
-          Treatment
-        </button>
+        <button class="help-v2-tab is-active" role="tab" aria-selected="true"  aria-controls="faq-photo"     data-tab="photo"     data-i18n="help.tab.photo">📷 Photo</button>
+        <button class="help-v2-tab"            role="tab" aria-selected="false" aria-controls="faq-result"    data-tab="result"    data-i18n="help.tab.result">📊 Results</button>
+        <button class="help-v2-tab"            role="tab" aria-selected="false" aria-controls="faq-treatment" data-tab="treatment" data-i18n="help.tab.treatment">💊 Treatment</button>
+        <button class="help-v2-tab"            role="tab" aria-selected="false" aria-controls="faq-app"       data-tab="app"       data-i18n="help.tab.app">📱 App</button>
       </div>
 
-      <!-- ── FAQ: GENERAL ── -->
-      <div class="help-v2-panel is-visible" id="faq-general" role="tabpanel">
+      <!-- ══ PHOTO ══ -->
+      <div class="help-v2-panel is-visible" id="faq-photo" role="tabpanel">
 
         <div class="faq-v2-item">
-          <button class="faq-v2-btn" aria-expanded="false">
-            What is Crop Disease Identifier?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+          <button class="faq-v2-btn" aria-expanded="true">
+            <span data-i18n="help.p.q1">What kind of photo gives the best result?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
-          <div class="faq-v2-body">
-            <p>Crop Disease Identifier is a free web app that helps farmers identify plant diseases from leaf photos. Upload a photo, select your crop, and get the disease name, confidence score, and both natural and chemical treatment options instantly.</p>
+          <div class="faq-v2-body" style="display:block">
+            <p data-i18n="help.p.a1">Take the photo in natural daylight, hold the leaf flat, get close so the leaf fills the frame, and keep the camera steady to avoid blur. Dark, blurry, or far-away photos give poor results.</p>
           </div>
         </div>
 
         <div class="faq-v2-item">
           <button class="faq-v2-btn" aria-expanded="false">
-            Is the app free to use?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+            <span data-i18n="help.p.q2">How many leaves should be in the photo?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="faq-v2-body">
-            <p>Yes, completely free. No registration, no subscription, no hidden charges. Designed specifically for small and resource-limited farmers.</p>
+            <p data-i18n="help.p.a2">Take one clear photo of a single leaf that clearly shows the disease symptoms. One focused leaf photo is better than multiple leaves in the frame.</p>
           </div>
         </div>
 
         <div class="faq-v2-item">
           <button class="faq-v2-btn" aria-expanded="false">
-            Does it work on my phone?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+            <span data-i18n="help.p.q3">What photo size and format is accepted?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="faq-v2-body">
-            <p>Yes. Works on any smartphone browser — Android or iPhone. Lightweight and fast even on low-end phones with slow connections. No installation needed.</p>
+            <p data-i18n="help.p.a3">JPG or PNG format, maximum 5 MB. Photos taken on your phone camera are automatically compressed to save your data.</p>
           </div>
         </div>
 
         <div class="faq-v2-item">
           <button class="faq-v2-btn" aria-expanded="false">
-            Which crops are supported?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+            <span data-i18n="help.p.q4">Can I take a photo directly with the camera?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="faq-v2-body">
-            <p>Currently supported: 🍅 Tomato, 🥔 Potato, 🌾 Rice, 🌶️ Chili, 🌽 Maize, Wheat, Cotton, Soybean. More crops will be added in future updates.</p>
+            <p data-i18n="help.p.a4">Yes. Tap the "Open Camera" button and your phone's rear camera will open immediately so you can take a fresh photo without leaving the app.</p>
           </div>
         </div>
 
       </div>
 
-      <!-- ── FAQ: PHOTO & UPLOAD ── -->
-      <div class="help-v2-panel" id="faq-photo" role="tabpanel" hidden>
-
-        <div class="faq-v2-item">
-          <button class="faq-v2-btn" aria-expanded="false">
-            What kind of photo gives the best results?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
-          </button>
-          <div class="faq-v2-body">
-            <ul>
-              <li>Take the photo in natural daylight.</li>
-              <li>Focus closely on the affected part of the leaf.</li>
-              <li>Keep the leaf clean and flat.</li>
-              <li>Hold your phone steady — avoid blur.</li>
-              <li>Get close — the leaf should fill the frame.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="faq-v2-item">
-          <button class="faq-v2-btn" aria-expanded="false">
-            What file formats are accepted?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
-          </button>
-          <div class="faq-v2-body">
-            <p>JPG and PNG files are accepted, up to 5 MB. Photos are automatically compressed before processing to save your data.</p>
-          </div>
-        </div>
-
-        <div class="faq-v2-item">
-          <button class="faq-v2-btn" aria-expanded="false">
-            Can I use my phone camera directly?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
-          </button>
-          <div class="faq-v2-body">
-            <p>Yes. Tap the "Open Camera" button on the Check Disease page. It opens your phone's rear camera directly so you can take a fresh photo right away.</p>
-          </div>
-        </div>
-
-        <div class="faq-v2-item">
-          <button class="faq-v2-btn" aria-expanded="false">
-            My image upload is not working — what should I do?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
-          </button>
-          <div class="faq-v2-body">
-            <ul>
-              <li>Make sure the file is JPG or PNG and under 5 MB.</li>
-              <li>Refresh the page and try again.</li>
-              <li>Check that your browser has camera and storage permissions.</li>
-              <li>Try Chrome or Firefox for best compatibility.</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- ── FAQ: RESULTS ── -->
+      <!-- ══ RESULTS ══ -->
       <div class="help-v2-panel" id="faq-result" role="tabpanel" hidden>
 
         <div class="faq-v2-item">
           <button class="faq-v2-btn" aria-expanded="false">
-            What does the confidence score mean?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+            <span data-i18n="help.r.q1">What does the confidence score mean?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="faq-v2-body">
-            <p>The confidence score shows how certain the system is about the diagnosis. A score of 90%+ means high confidence. Below 60% means the photo quality may be low — try a clearer photo for a better result.</p>
+            <p data-i18n="help.r.a1">It shows how certain the app is about the diagnosis. Above 80% is highly reliable. Below 60% means try again with a clearer, closer photo.</p>
+          </div>
+        </div>
+
+        <!-- ⚠️ DISCLAIMER — most important FAQ -->
+        <div class="faq-v2-item faq-v2-item--warning">
+          <button class="faq-v2-btn" aria-expanded="false">
+            <span data-i18n="help.r.q2">Is the result 100% correct?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-v2-body">
+            <div class="faq-disclaimer">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M10.3 3.9 2.6 17.5A2 2 0 0 0 4.3 20.5h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/>
+                <path d="M12 9v4m0 3h.01"/>
+              </svg>
+              <p data-i18n="help.r.a2">⚠️ No. This is an AI estimate, not a guaranteed diagnosis. If the disease seems serious or you are unsure, please consult a local agricultural officer or crop expert before taking major action.</p>
+            </div>
           </div>
         </div>
 
         <div class="faq-v2-item">
           <button class="faq-v2-btn" aria-expanded="false">
-            The result seems wrong — what should I do?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+            <span data-i18n="help.r.q3">What to do if it shows "Low confidence"?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="faq-v2-body">
-            <ul>
-              <li>Take a clearer, closer photo in good light.</li>
-              <li>Make sure you selected the correct crop type.</li>
-              <li>Compare the listed symptoms with your plant.</li>
-              <li>If unsure, consult a local agricultural officer.</li>
-            </ul>
+            <p data-i18n="help.r.a3">Take a new photo in better light, from closer, and make sure you have selected the correct crop from the dropdown.</p>
           </div>
         </div>
 
         <div class="faq-v2-item">
           <button class="faq-v2-btn" aria-expanded="false">
-            Can I save or share my result?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+            <span data-i18n="help.r.q4">Can I save or share my result?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="faq-v2-body">
-            <p>You can take a screenshot of the result page to save or share it. A dedicated share and download feature will be available in a future update.</p>
+            <p data-i18n="help.r.a4">Yes, take a screenshot of the result page to save or share it with others.</p>
           </div>
         </div>
 
       </div>
 
-      <!-- ── FAQ: TREATMENT ── -->
+      <!-- ══ TREATMENT ══ -->
       <div class="help-v2-panel" id="faq-treatment" role="tabpanel" hidden>
 
         <div class="faq-v2-item">
           <button class="faq-v2-btn" aria-expanded="false">
-            Are the treatment suggestions safe to follow?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+            <span data-i18n="help.t.q1">What is the difference between natural and chemical treatment?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="faq-v2-body">
-            <p>The suggestions are general guidelines based on common agricultural practices. For chemical treatments, always follow the product label, wear protective equipment and respect the pre-harvest interval. When in doubt, consult a licensed agronomist.</p>
+            <p data-i18n="help.t.a1">Natural methods (e.g. neem oil) are safe for the environment and suitable for mild infections. Chemical methods (fungicides) work faster for severe cases but must be used carefully following dosage instructions.</p>
           </div>
         </div>
 
         <div class="faq-v2-item">
           <button class="faq-v2-btn" aria-expanded="false">
-            What is the difference between natural and chemical treatment?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+            <span data-i18n="help.t.q2">What precautions should I take when using chemicals?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="faq-v2-body">
-            <p><strong>Natural treatment</strong> uses organic methods — removing infected leaves, neem oil, crop rotation. Safer for the environment and health.</p>
-            <p><strong>Chemical treatment</strong> uses fungicides or pesticides. Acts faster for severe infections but must be used carefully with proper dosage.</p>
-            <p>Try natural methods first for mild infections. Use chemicals only when necessary.</p>
+            <p data-i18n="help.t.a2">Always follow the dosage on the packet label. Wear gloves and a mask while spraying. Do not spray a few days before harvesting (check the pre-harvest interval on the label).</p>
           </div>
         </div>
 
         <div class="faq-v2-item">
           <button class="faq-v2-btn" aria-expanded="false">
-            How quickly should I start treatment?
-            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+            <span data-i18n="help.t.q3">When is the best time to spray?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="faq-v2-body">
-            <p>As soon as possible. Most plant diseases spread quickly in warm and humid conditions. Early action means less crop loss and lower treatment cost.</p>
+            <p data-i18n="help.t.a3">Spray at the very beginning of the infection for best results. Morning or late afternoon is the best time — avoid spraying in strong midday sun.</p>
           </div>
         </div>
 
       </div>
 
-      <!-- STILL NEED HELP -->
+      <!-- ══ APP ══ -->
+      <div class="help-v2-panel" id="faq-app" role="tabpanel" hidden>
+
+        <div class="faq-v2-item">
+          <button class="faq-v2-btn" aria-expanded="false">
+            <span data-i18n="help.a.q1">Will the app work without internet?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-v2-body">
+            <p data-i18n="help.a.a1">The app works with a weak internet connection. But without any connection at all, the photo cannot be checked because it needs to reach the server. You can still browse other pages.</p>
+          </div>
+        </div>
+
+        <div class="faq-v2-item">
+          <button class="faq-v2-btn" aria-expanded="false">
+            <span data-i18n="help.a.q2">Will it work on a cheap phone?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-v2-body">
+            <p data-i18n="help.a.a2">Yes, the app is built to be lightweight and fast even on low-end Android phones.</p>
+          </div>
+        </div>
+
+        <div class="faq-v2-item">
+          <button class="faq-v2-btn" aria-expanded="false">
+            <span data-i18n="help.a.q3">Which crops can be identified?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-v2-body">
+            <p data-i18n="help.a.a3">Currently: Tomato, Potato, Rice, Chili, Maize and more. New crops will be added over time.</p>
+          </div>
+        </div>
+
+        <div class="faq-v2-item">
+          <button class="faq-v2-btn" aria-expanded="false">
+            <span data-i18n="help.a.q4">Is my photo stored or shared?</span>
+            <svg class="faq-v2-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="faq-v2-body">
+            <p data-i18n="help.a.a4">Your photo is used only for disease checking and is not stored permanently or shared with third parties.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CONTACT -->
       <div class="help-v2-contact">
         <div class="help-v2-contact-icon">💬</div>
-        <h2>Still have questions?</h2>
-        <p>Check our About page for photo tips and crop info, or go straight to checking your leaf.</p>
+        <h2 data-i18n="help.contact.title">Still have questions?</h2>
+        <p data-i18n="help.contact.desc">Check our About page for photo tips and crop info, or go straight to checking your leaf.</p>
         <div class="help-v2-contact-btns">
-          <a class="btn btn--outline" href="about.html">Read About Page</a>
-          <a class="btn btn--primary"  href="check.html">Check a Leaf →</a>
+          <a class="btn btn--outline" href="about.html" data-i18n="help.contact.btn1">Read About Page</a>
+          <a class="btn btn--primary"  href="check.html" data-i18n="help.contact.btn2">Check a Leaf →</a>
         </div>
       </div>
 
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <svg class="site-footer__wave" viewBox="0 0 1440 28" preserveAspectRatio="none" aria-hidden="true">
-      <path fill="currentColor"
-            d="M0 28h1440V14c-120 9-240 11-360 6s-240-13-360-13-240 13-360 13S120 23 0 14Z"/>
+      <path fill="currentColor" d="M0 28h1440V14c-120 9-240 11-360 6s-240-13-360-13-240 13-360 13S120 23 0 14Z"/>
     </svg>
     <div class="container site-footer__inner">
-      <p class="site-footer__slogan">Better Plants • Better Yields • A Greener Future</p>
-      <p class="site-footer__made">🌿 Made for Farmers</p>
+      <p class="site-footer__slogan" data-i18n="footer.slogan">Better Plants • Better Yields • A Greener Future</p>
+      <p class="site-footer__made" data-i18n="footer.made">🌿 Made for Farmers</p>
       <nav class="site-footer__links" aria-label="Footer">
-        <a href="index.html">Home</a>
-        <a href="check.html">Check Disease</a>
-        <a href="about.html">About</a>
-        <a href="help.html">Help</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="check.html" data-i18n="nav.check">Check Disease</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="help.html"  data-i18n="nav.help">Help</a>
       </nav>
       <p class="site-footer__made">© <span data-current-year>2026</span> Crop Disease Identifier</p>
     </div>

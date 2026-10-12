@@ -1,37 +1,36 @@
 /* ==========================================================================
-   api.js — mock-only prediction (no backend, no fetch, no server needed)
-   --------------------------------------------------------------------------
-   ONE public function:  predictDisease(crop)
-   Returns a Promise that resolves with a result object after a short delay.
-
-   When the backend is ready, only this file needs to change.
+   api.js — mock-only prediction (no backend, no fetch)
    ========================================================================== */
 
-import { MOCK_RESULTS } from './config.js';
+import { MOCK_RESULTS, MOCK_RESULTS_BN } from './config.js';
+import { getLang } from './lang.js';
 
-/**
- * Simulate a disease prediction using local mock data.
- * @param {string} crop  — crop name matching a key in MOCK_RESULTS
- * @returns {Promise<Object>}
- */
 export function predictDisease(crop) {
   return new Promise((resolve) => {
-    /* Small delay so the loading spinner is visible */
     setTimeout(() => {
-      const data = MOCK_RESULTS[crop] || MOCK_RESULTS._default;
+      const enData = MOCK_RESULTS[crop]  || MOCK_RESULTS._default;
+      const bnData = MOCK_RESULTS_BN[crop] || MOCK_RESULTS_BN._default;
+
+      const confidence = Number(
+        Math.min(0.99, Math.max(0.55,
+          enData.confidence + (Math.random() - 0.5) * 0.04
+        )).toFixed(2)
+      );
 
       resolve({
         crop,
-        disease:            data.disease,
-        scientific_name:    data.scientific_name,
-        confidence:         Number(
-          Math.min(0.99, Math.max(0.55,
-            data.confidence + (Math.random() - 0.5) * 0.04
-          )).toFixed(2)
-        ),
-        symptoms:           data.symptoms,
-        natural_treatment:  data.natural_treatment,
-        chemical_treatment: data.chemical_treatment,
+        /* English */
+        disease:            enData.disease,
+        scientific_name:    enData.scientific_name,
+        confidence,
+        symptoms:           enData.symptoms,
+        natural_treatment:  enData.natural_treatment,
+        chemical_treatment: enData.chemical_treatment,
+        /* Bangla */
+        disease_bn:            bnData.disease,
+        symptoms_bn:           bnData.symptoms,
+        natural_treatment_bn:  bnData.natural_treatment,
+        chemical_treatment_bn: bnData.chemical_treatment,
       });
     }, 1400);
   });

@@ -1,21 +1,19 @@
 /* ==========================================================================
    result.js — populates result.html from sessionStorage
+   Supports both English and Bangla based on current lang setting.
    ========================================================================== */
 
 import { STORAGE } from './config.js';
+import { getLang, applyLang } from './lang.js';
 
 export function initResultPage() {
   const empty   = document.getElementById('rp-empty');
   const content = document.getElementById('rp-content');
 
-  /* ── Read sessionStorage ── */
   const rawResult  = sessionStorage.getItem(STORAGE.RESULT);
   const previewSrc = sessionStorage.getItem(STORAGE.PREVIEW);
 
-  if (!rawResult) {
-    empty.hidden = false;
-    return;
-  }
+  if (!rawResult) { empty.hidden = false; return; }
 
   let r;
   try { r = JSON.parse(rawResult); }
@@ -23,42 +21,78 @@ export function initResultPage() {
 
   content.hidden = false;
 
-  /* ── Leaf image ── */
+  /* Re-render dynamic content whenever language changes */
+  renderResult(r, previewSrc);
+
+  /* Listen for future language toggles on this page */
+  document.getElementById('lang-toggle')?.addEventListener('click', () => {
+    /* Small delay so applyLang() in lang.js fires first */
+    setTimeout(() => renderResult(r, previewSrc), 20);
+  });
+}
+
+/* --------------------------------------------------------------------------
+   renderResult — fills every dynamic slot using the current language
+   -------------------------------------------------------------------------- */
+function renderResult(r, previewSrc) {
+  const lang = getLang();
+  const bn   = lang === 'bn';
+
+  /* Leaf image */
   const img = document.getElementById('rp-img');
-  if (previewSrc) {
+  if (img && previewSrc) {
     img.src = previewSrc;
-    img.alt = `Uploaded leaf — ${r.crop}`;
-  } else {
-    img.closest('.rp-img-wrap').style.background = 'var(--green-050)';
-    img.hidden = true;
+    img.alt = bn ? `আপলোড করা পাতা — ${r.crop}` : `Uploaded leaf — ${r.crop}`;
   }
 
-  /* ── Disease name ── */
-  document.getElementById('rp-disease-name').textContent =
-    `${r.crop} ${r.disease}`;
-  document.getElementById('rp-scientific').textContent =
-    r.scientific_name ? `(${r.scientific_name})` : '';
+  /* Disease name */
+  const diseaseName = bn
+    ? `${cropBn(r.crop)} ${r.disease_bn || r.disease}`
+    : `${r.crop} ${r.disease}`;
+  const el = document.getElementById('rp-disease-name');
+  if (el) el.textContent = diseaseName;
 
-  /* ── Confidence bar — animate after first paint ── */
+  /* Scientific name */
+  const sci = document.getElementById('rp-scientific');
+  if (sci) sci.textContent = r.scientific_name ? `(${r.scientific_name})` : '';
+
+  /* Confidence bar */
   const pct      = Math.round(r.confidence * 100);
   const fill     = document.getElementById('rp-bar-fill');
   const pctEl    = document.getElementById('rp-pct');
-  const barTrack = fill.closest('[role="progressbar"]');
+  const barTrack = fill?.closest('[role="progressbar"]');
 
-  pctEl.textContent = `${pct}%`;
-  barTrack.setAttribute('aria-valuenow', pct);
+  if (pctEl)    pctEl.textContent = `${pct}%`;
+  if (barTrack) barTrack.setAttribute('aria-valuenow', pct);
+  if (fill) {
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => { fill.style.width = `${pct}%`; })
+    );
+  }
 
-  requestAnimationFrame(() =>
-    requestAnimationFrame(() => { fill.style.width = `${pct}%`; })
-  );
+  /* Lists */
+  const symptoms  = bn ? (r.symptoms_bn           || r.symptoms)           : r.symptoms;
+  const natural   = bn ? (r.natural_treatment_bn   || r.natural_treatment)  : r.natural_treatment;
+  const chemical  = bn ? (r.chemical_treatment_bn  || r.chemical_treatment) : r.chemical_treatment;
 
-  /* ── Lists ── */
-  fillList('rp-symptoms', r.symptoms,           'bullet');
-  fillList('rp-natural',  r.natural_treatment,  'check');
-  fillList('rp-chemical', r.chemical_treatment, 'check-blue');
+  fillList('rp-symptoms', symptoms,  'bullet');
+  fillList('rp-natural',  natural,   'check');
+  fillList('rp-chemical', chemical,  'check-blue');
 }
 
-/* ---------- helpers ---------- */
+/* --------------------------------------------------------------------------
+   Crop name → Bangla mapping
+   -------------------------------------------------------------------------- */
+const CROP_BN = {
+  Tomato: 'টমেটো', Potato: 'আলু', Rice: 'ধান',
+  Chili:  'মরিচ',  Maize:  'ভুট্টা', Wheat: 'গম',
+  Cotton: 'তুলা',  Soybean:'সয়াবিন',
+};
+function cropBn(crop) { return CROP_BN[crop] || crop; }
+
+/* --------------------------------------------------------------------------
+   Helpers
+   -------------------------------------------------------------------------- */
 function fillList(id, items, style) {
   const ul = document.getElementById(id);
   if (!ul || !Array.isArray(items)) return;
@@ -69,7 +103,6 @@ function fillList(id, items, style) {
       : style === 'check'
         ? checkSvg('var(--green-700)')
         : checkSvg('#1565C0');
-
     return `<li>${icon}<span>${esc(text)}</span></li>`;
   }).join('');
 }

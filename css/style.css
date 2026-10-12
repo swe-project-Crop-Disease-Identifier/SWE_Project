@@ -2469,3 +2469,60 @@ img:not([loading="lazy"]) {
   gap: var(--sp-3);
   justify-content: center;
 }
+
+
+/* ==========================================================================
+   28. LANGUAGE TOGGLE BUTTON
+   ========================================================================== */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 5px 14px;
+  font: inherit;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--green-700);
+  background: var(--green-050);
+  border: 1.5px solid var(--green-300);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s, color .15s, border-color .15s, transform .1s;
+  flex: 0 0 auto;
+}
+.lang-toggle:hover {
+  background: var(--green-700);
+  color: #fff;
+  border-color: var(--green-700);
+}
+.lang-toggle:active { transform: scale(.96); }
+.lang-toggle:focus-visible { outline: var(--focus); }
+
+
+/* ==========================================================================
+   29. FAQ DISCLAIMER BLOCK
+   ========================================================================== */
+.faq-v2-item--warning .faq-v2-btn {
+  color: #9A5B00;
+  background: var(--warn-bg);
+}
+.faq-v2-item--warning .faq-v2-btn:hover {
+  background: #FFF0CC;
+}
+.faq-v2-item--warning .faq-v2-chevron { color: #9A5B00; }
+.faq-v2-item--warning { border-color: var(--warn-line); }
+.faq-v2-item--warning.is-open { border-color: #F2DDB0; }
+
+.faq-disclaimer {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: flex-start;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-line);
+  border-radius: var(--r-sm);
+}
+.faq-disclaimer svg { flex: 0 0 auto; color: #9A5B00; margin-top: 2px; }
+.faq-disclaimer p   { margin: 0; color: #7A4500; font-size: var(--fs-sm); line-height: 1.6; }

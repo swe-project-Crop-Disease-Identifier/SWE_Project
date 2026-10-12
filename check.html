@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Check Disease — Crop Disease Identifier</title>
-  <meta name="description" content="Upload a leaf photo and select your crop to identify the disease and get treatment suggestions.">
+  <meta name="description" content="Upload a leaf photo and select your crop to identify the disease.">
   <meta name="theme-color" content="#1E8E4E">
   <link rel="icon" type="image/png" href="assets/icons/logo (2).png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,247 +16,193 @@
 <body data-page="check">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- OFFLINE BANNER -->
   <div class="offline-banner" data-offline-banner role="status" hidden>
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none"
-         stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <path d="M1 1l22 22M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 3.5-2.3M19 13a10 10 0 0 0-4-2.5"/>
       <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/>
     </svg>
-    You are offline. Reconnect to check a leaf disease.
+    <span data-i18n="offline.check">You are offline. Reconnect to check a leaf disease.</span>
   </div>
 
-  <!-- ── NAVBAR ── -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="index.html" aria-label="Crop Disease Identifier — home">
         <span class="brand__mark" aria-hidden="true">
           <img src="assets/icons/logo (2).png" alt="" width="38" height="38" class="brand__logo-img">
         </span>
-        <span class="brand__name">Crop Disease Identifier</span>
+        <span class="brand__name" data-i18n="brand.name">Crop Disease Identifier</span>
       </a>
-
       <nav class="site-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="check.html" class="is-active" aria-current="page">Check Disease</a>
-        <a href="about.html">About</a>
-        <a href="help.html">Help</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="check.html" class="is-active" aria-current="page" data-i18n="nav.check">Check Disease</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="help.html" data-i18n="nav.help">Help</a>
       </nav>
-
       <span class="badge-farmer">
-        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 21s-7-4.4-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4C19 16.6 12 21 12 21Z"/>
         </svg>
-        Farmer Friendly
+        <span data-i18n="nav.farmer">Farmer Friendly</span>
       </span>
-
-      <button class="nav-toggle" type="button" data-nav-toggle
-              aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+      <button class="lang-toggle" type="button" id="lang-toggle" aria-label="Switch to Bangla" data-lang="en">বাংলা</button>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </div>
-
     <div class="mobile-nav" id="mobile-nav" hidden>
-      <a href="index.html">Home</a>
-      <a href="check.html" class="is-active" aria-current="page">Check Disease</a>
-      <a href="about.html">About</a>
-      <a href="help.html">Help</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="check.html" class="is-active" data-i18n="nav.check">Check Disease</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="help.html" data-i18n="nav.help">Help</a>
     </div>
   </header>
 
-  <!-- ── MAIN ── -->
   <main id="main" class="check-page-v2">
     <div class="container">
 
-      <!-- Page header -->
       <div class="check-v2-head">
         <span class="check-v2-eyebrow">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <path d="M9 18h6M10 21h4"/>
             <path d="M12 3a6 6 0 0 0-3.6 10.8c.5.4.8 1 .9 1.6l.1.6h5.2l.1-.6c.1-.6.4-1.2.9-1.6A6 6 0 0 0 12 3Z"/>
           </svg>
-          Disease Check
+          <span data-i18n="check.eyebrow">Disease Check</span>
         </span>
-        <h1 class="check-v2-title">Check for Plant Disease</h1>
-        <p class="check-v2-sub">Upload a photo of the leaf and select the crop to get started.</p>
+        <h1 class="check-v2-title" data-i18n="check.title">Check for Plant Disease</h1>
+        <p class="check-v2-sub" data-i18n="check.sub">Upload a photo of the leaf and select the crop to get started.</p>
       </div>
 
-      <!-- ── MAIN CARD ── -->
       <div class="check-v2-card">
         <form class="check-v2-grid" id="check-form" novalidate>
 
-          <!-- ── LEFT: Upload zone ── -->
+          <!-- LEFT: Upload -->
           <div class="check-v2-left">
-
             <div class="dropzone" id="dropzone" data-state="empty">
-
-              <!-- Empty state -->
               <div class="dropzone__idle" data-dropzone-idle>
-
                 <span class="dropzone__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="32" height="32" fill="none"
-                       stroke="currentColor" stroke-width="1.6"
-                       stroke-linecap="round" stroke-linejoin="round">
+                  <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="4" width="18" height="16" rx="3"/>
                     <circle cx="8.5" cy="9.5" r="1.8"/>
                     <path d="M4 17l4.5-4.5a2 2 0 0 1 2.8 0L16 17"/>
                     <path d="M14 15l1.6-1.6a2 2 0 0 1 2.8 0L20 15"/>
                   </svg>
                 </span>
-
-                <p class="dropzone__title">Drag &amp; drop your image here</p>
-                <p class="dropzone__or-line"><span>or</span></p>
-
-                <!-- Hidden real inputs -->
+                <p class="dropzone__title" data-i18n="check.drag">Drag &amp; drop your image here</p>
+                <p class="dropzone__or-line"><span data-i18n="check.or">or</span></p>
                 <input type="file" id="file-input" accept="image/*" hidden>
                 <input type="file" id="camera-input" accept="image/*" capture="environment" hidden>
-
                 <div class="dropzone__btns">
                   <label class="btn btn--primary btn--sm" for="file-input">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                         stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
                       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                       <polyline points="17 8 12 3 7 8"/>
                       <line x1="12" y1="3" x2="12" y2="15"/>
                     </svg>
-                    Choose File
+                    <span data-i18n="check.choose">Choose File</span>
                   </label>
                 </div>
-
-                <p class="dropzone__hint">You can also use your camera</p>
-
+                <p class="dropzone__hint" data-i18n="check.camera.hint">You can also use your camera</p>
                 <label class="btn btn--outline btn--sm" for="camera-input">
-                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
-                       stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
                     <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
                     <circle cx="12" cy="13" r="4"/>
                   </svg>
-                  Open Camera
+                  <span data-i18n="check.camera.btn">Open Camera</span>
                 </label>
-
               </div>
-
-              <!-- Preview state (shown after image selected) -->
               <div class="dropzone__preview" data-dropzone-preview hidden>
                 <img data-preview-img src="" alt="Preview of your selected leaf photo">
                 <p class="dropzone__filename" data-preview-name></p>
-                <button class="btn btn--outline btn--sm" type="button" data-remove-image>
-                  ✕ Remove
-                </button>
+                <button class="btn btn--outline btn--sm" type="button" data-remove-image data-i18n="check.remove">✕ Remove</button>
               </div>
-
             </div>
-
-            <!-- Inline error -->
             <p class="field-message field-message--error" id="image-error" role="alert" hidden></p>
-
           </div>
 
-          <!-- ── DIVIDER (desktop only) ── -->
           <div class="check-v2-divider" aria-hidden="true"></div>
 
-          <!-- ── RIGHT: Crop select + submit ── -->
+          <!-- RIGHT: Crop + Submit -->
           <div class="check-v2-right">
-
             <div class="check-v2-crop-head">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
-                   stroke="var(--green-700)" stroke-width="2"
-                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--green-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M4 20c0-8 5-14 16-15 0 11-6 16-14 16H4Z"/>
                 <path d="M4 20c3-5 7-8 11-9"/>
               </svg>
-              <span>Select Crop</span>
+              <span data-i18n="check.crop.head">Select Crop</span>
             </div>
-
             <div class="field">
-              <select class="select" id="crop-select" name="crop" aria-label="Choose your crop">
+              <select class="select" id="crop-select" name="crop" aria-label="Choose your crop" data-i18n-placeholder="check.crop.placeholder">
                 <option value="" disabled selected>Choose your crop</option>
               </select>
             </div>
-
-            <button class="btn btn--primary btn--block btn--lg check-v2-submit"
-                    type="submit" id="submit-btn" disabled>
-              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none"
-                   stroke="currentColor" stroke-width="2"
-                   stroke-linecap="round" stroke-linejoin="round">
+            <button class="btn btn--primary btn--block btn--lg check-v2-submit" type="submit" id="submit-btn" disabled>
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="11" cy="11" r="7"/>
                 <path d="m20 20-3.5-3.5"/>
               </svg>
-              Check Disease
+              <span data-i18n="check.btn">Check Disease</span>
             </button>
-
             <p class="check-v2-wifi-note">
-              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                 <path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5.5 5.5 0 0 1 7 0"/>
                 <circle cx="12" cy="19.5" r="1" fill="currentColor" stroke="none"/>
               </svg>
-              Works even with a weak internet connection
+              <span data-i18n="check.wifi">Works even with a weak internet connection</span>
             </p>
-
           </div>
 
-          <!-- Loading state -->
           <div class="loading-box" id="loading-box" role="status" hidden>
             <span class="spinner" aria-hidden="true"></span>
-            <span data-loading-text>Checking your leaf…</span>
+            <span data-loading-text data-i18n="check.loading">Checking your leaf…</span>
           </div>
 
-          <!-- Error state -->
           <div class="error-box" id="error-box" role="alert" hidden>
             <span class="error-box__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                 <path d="M12 8v5"/>
                 <circle cx="12" cy="16.5" r="1" fill="currentColor" stroke="none"/>
                 <path d="M10.3 3.9 2.6 17.5A2 2 0 0 0 4.3 20.5h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/>
               </svg>
             </span>
             <div>
-              <h3 data-error-title>Something went wrong</h3>
-              <p data-error-text>Please check your connection and try again.</p>
-              <button class="btn btn--outline" type="button" id="retry-btn">Try Again</button>
+              <h3 data-error-title data-i18n="check.error.title">Something went wrong</h3>
+              <p data-error-text data-i18n="check.error.msg">Please check your connection and try again.</p>
+              <button class="btn btn--outline" type="button" id="retry-btn" data-i18n="check.retry">Try Again</button>
             </div>
           </div>
 
         </form>
       </div>
-      <!-- /check-v2-card -->
 
-      <!-- TIP BOX -->
       <aside class="tip-box check-v2-tip">
         <span class="tip-box__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 18h6M10 21h4"/>
             <path d="M12 3a6 6 0 0 0-3.6 10.8c.5.4.8 1 .9 1.6l.1.6h5.2l.1-.6c.1-.6.4-1.2.9-1.6A6 6 0 0 0 12 3Z"/>
           </svg>
         </span>
         <p>
-          <strong>Tip:</strong> Make sure the leaf is clear and well-lit for better results.
-          <a href="about.html" style="color:var(--green-700);font-weight:600;margin-left:4px;">See photo tips →</a>
+          <strong>Tip:</strong>
+          <span data-i18n="check.tip">Make sure the leaf is clear and well-lit for better results.</span>
+          <a href="about.html" style="color:var(--green-700);font-weight:600;margin-left:4px;" data-i18n="check.tip.link">See photo tips →</a>
         </p>
       </aside>
 
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <svg class="site-footer__wave" viewBox="0 0 1440 28" preserveAspectRatio="none" aria-hidden="true">
-      <path fill="currentColor"
-            d="M0 28h1440V14c-120 9-240 11-360 6s-240-13-360-13-240 13-360 13S120 23 0 14Z"/>
+      <path fill="currentColor" d="M0 28h1440V14c-120 9-240 11-360 6s-240-13-360-13-240 13-360 13S120 23 0 14Z"/>
     </svg>
     <div class="container site-footer__inner">
-      <p class="site-footer__slogan">Better Plants • Better Yields • A Greener Future</p>
-      <p class="site-footer__made">🌿 Made for Farmers</p>
+      <p class="site-footer__slogan" data-i18n="footer.slogan">Better Plants • Better Yields • A Greener Future</p>
+      <p class="site-footer__made" data-i18n="footer.made">🌿 Made for Farmers</p>
       <nav class="site-footer__links" aria-label="Footer">
-        <a href="index.html">Home</a>
-        <a href="check.html">Check Disease</a>
-        <a href="about.html">About</a>
-        <a href="help.html">Help</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="check.html" data-i18n="nav.check">Check Disease</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="help.html" data-i18n="nav.help">Help</a>
       </nav>
       <p class="site-footer__made">© <span data-current-year>2026</span> Crop Disease Identifier</p>
     </div>

@@ -16,270 +16,213 @@
 <body data-page="home">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- OFFLINE BANNER -->
   <div class="offline-banner" data-offline-banner role="status" hidden>
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none"
-         stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <path d="M1 1l22 22M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 3.5-2.3M19 13a10 10 0 0 0-4-2.5"/>
       <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/>
     </svg>
-    You are offline. You can still browse, but checking a leaf needs a connection.
+    <span data-i18n="offline.index">You are offline. You can still browse, but checking a leaf needs a connection.</span>
   </div>
 
-  <!-- NAVBAR -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="index.html" aria-label="Crop Disease Identifier — home">
         <span class="brand__mark" aria-hidden="true">
           <img src="assets/icons/logo (2).png" alt="" width="38" height="38" class="brand__logo-img">
         </span>
-        <span class="brand__name">Crop Disease Identifier</span>
+        <span class="brand__name" data-i18n="brand.name">Crop Disease Identifier</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
-        <a href="index.html" class="is-active" aria-current="page">Home</a>
-        <a href="check.html">Check Disease</a>
-        <a href="about.html">About</a>
-        <a href="help.html">Help</a>
+        <a href="index.html" class="is-active" aria-current="page" data-i18n="nav.home">Home</a>
+        <a href="check.html" data-i18n="nav.check">Check Disease</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="help.html" data-i18n="nav.help">Help</a>
       </nav>
-      <span class="badge-farmer">
-        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <span class="badge-farmer" data-i18n="nav.farmer">
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 21s-7-4.4-7-9.6A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 7 3.4C19 16.6 12 21 12 21Z"/>
         </svg>
         Farmer Friendly
       </span>
-      <button class="nav-toggle" type="button" data-nav-toggle
-              aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+      <button class="lang-toggle" type="button" id="lang-toggle" aria-label="Switch to Bangla" data-lang="en">বাংলা</button>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </div>
     <div class="mobile-nav" id="mobile-nav" hidden>
-      <a href="index.html" class="is-active" aria-current="page">Home</a>
-      <a href="check.html">Check Disease</a>
-      <a href="about.html">About</a>
-      <a href="help.html">Help</a>
+      <a href="index.html" class="is-active" data-i18n="nav.home">Home</a>
+      <a href="check.html" data-i18n="nav.check">Check Disease</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="help.html" data-i18n="nav.help">Help</a>
     </div>
   </header>
 
   <main id="main">
 
-    <!-- ================================================================
-         HERO — full-width diseased leaf background
-         ================================================================ -->
+    <!-- HERO -->
     <section class="hero-v2">
-      <!-- Background: use your farmer image, fallback to a CSS gradient -->
       <div class="hero-v2__bg">
-        <img
-          src="assets/images/farmer-tablet.jpg"
-          data-fallback="assets/images/backgorund.jpg"
-          alt=""
-          aria-hidden="true"
-          width="1400" height="700"
-          loading="eager" decoding="async"
-          class="hero-v2__bg-img">
-        <!-- dark-green gradient overlay — gives the mockup look -->
+        <img src="assets/images/farmer-tablet.jpg" data-fallback="assets/images/backgorund.jpg"
+             alt="" aria-hidden="true" width="1400" height="700" loading="eager" decoding="async" class="hero-v2__bg-img">
         <div class="hero-v2__overlay"></div>
       </div>
-
       <div class="container hero-v2__content">
         <div class="hero-v2__copy">
-
           <h1 class="hero-v2__title">
-            Healthy Plants<br>
-            <span class="hero-v2__title-accent">Bigger Harvests</span>
+            <span data-i18n="home.hero.title1">Healthy Plants</span><br>
+            <span class="hero-v2__title-accent" data-i18n="home.hero.title2">Bigger Harvests</span>
           </h1>
-
-          <p class="hero-v2__lead">
-            Take a photo of your plant leaf, identify the disease<br class="hide-mobile">
-            and get treatment suggestions — quickly and easily.
+          <p class="hero-v2__lead" data-i18n="home.hero.lead">
+            Take a photo of your plant leaf, identify the disease and get treatment suggestions — quickly and easily.
           </p>
-
-          <!-- 3 mini features -->
           <ul class="hero-v2__features">
             <li>
               <span class="hero-v2__feat-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                   <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
                   <circle cx="12" cy="13" r="4"/>
                 </svg>
               </span>
-              Quick Identification
+              <span data-i18n="home.feat1">Quick Identification</span>
             </li>
             <li>
               <span class="hero-v2__feat-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                   <path d="M12 22c6-3 9-7 9-12a9 9 0 1 0-18 0c0 5 3 9 9 12Z"/>
                 </svg>
               </span>
-              Natural &amp; Chemical Treatment Options
+              <span data-i18n="home.feat2">Natural &amp; Chemical Treatment Options</span>
             </li>
             <li>
               <span class="hero-v2__feat-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                   <rect x="6" y="2" width="12" height="20" rx="2.5"/>
                   <path d="M11 18.5h2"/>
                 </svg>
               </span>
-              Works on Low-End Phones
+              <span data-i18n="home.feat3">Works on Low-End Phones</span>
             </li>
           </ul>
-
           <a class="btn btn--primary btn--lg hero-v2__cta" href="check.html">
-            Check Your Plant
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <span data-i18n="home.cta">Check Your Plant</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
               <path d="M4 12h15m0 0-6-6m6 6-6 6"/>
             </svg>
           </a>
-
         </div>
       </div>
     </section>
 
-    <!-- ================================================================
-         HOW IT WORKS — 3 steps, clean cards
-         ================================================================ -->
+    <!-- HOW IT WORKS -->
     <section class="home-how" aria-labelledby="how-heading">
       <div class="container">
         <div class="home-how__head">
-          <h2 id="how-heading">How It Works</h2>
-          <p>Three simple steps — no training needed.</p>
+          <h2 id="how-heading" data-i18n="home.how.title">How It Works</h2>
+          <p data-i18n="home.how.sub">Three simple steps — no training needed.</p>
         </div>
-
         <div class="home-how__grid">
-
           <div class="home-how__step">
             <div class="home-how__num" aria-hidden="true">1</div>
             <div class="home-how__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none"
-                   stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
                 <circle cx="12" cy="13" r="4"/>
               </svg>
             </div>
-            <h3>Take a Photo</h3>
-            <p>Open your camera or upload a photo of the affected leaf from your phone gallery.</p>
+            <h3 data-i18n="home.step1.title">Take a Photo</h3>
+            <p data-i18n="home.step1.desc">Open your camera or upload a photo of the affected leaf from your phone gallery.</p>
           </div>
-
           <div class="home-how__connector" aria-hidden="true">
-            <svg viewBox="0 0 40 24" width="40" height="24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <svg viewBox="0 0 40 24" width="40" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
               <path d="M4 12h28m0 0-8-7m8 7-8 7" stroke-dasharray="4 3"/>
             </svg>
           </div>
-
           <div class="home-how__step">
             <div class="home-how__num" aria-hidden="true">2</div>
             <div class="home-how__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none"
-                   stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 20c0-8 5-14 16-15 0 11-6 16-14 16H4Z"/>
                 <path d="M4 20c3-5 7-8 11-9"/>
               </svg>
             </div>
-            <h3>Select Crop</h3>
-            <p>Choose your crop type — Tomato, Potato, Rice, Chili, Maize and more.</p>
+            <h3 data-i18n="home.step2.title">Select Crop</h3>
+            <p data-i18n="home.step2.desc">Choose your crop type — Tomato, Potato, Rice, Chili, Maize and more.</p>
           </div>
-
           <div class="home-how__connector" aria-hidden="true">
-            <svg viewBox="0 0 40 24" width="40" height="24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <svg viewBox="0 0 40 24" width="40" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
               <path d="M4 12h28m0 0-8-7m8 7-8 7" stroke-dasharray="4 3"/>
             </svg>
           </div>
-
           <div class="home-how__step">
             <div class="home-how__num" aria-hidden="true">3</div>
             <div class="home-how__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none"
-                   stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="11" cy="11" r="7"/>
                 <path d="m20 20-3.5-3.5"/>
               </svg>
             </div>
-            <h3>Get the Result</h3>
-            <p>See the disease name, confidence score and natural &amp; chemical treatment options instantly.</p>
+            <h3 data-i18n="home.step3.title">Get the Result</h3>
+            <p data-i18n="home.step3.desc">See the disease name, confidence score and natural &amp; chemical treatment options instantly.</p>
           </div>
-
         </div>
-
         <div class="home-how__cta">
-          <a class="btn btn--primary btn--lg" href="check.html">
-            Start Checking Now →
-          </a>
+          <a class="btn btn--primary btn--lg" href="check.html" data-i18n="home.start.btn">Start Checking Now →</a>
         </div>
       </div>
     </section>
 
-    <!-- ================================================================
-         BENEFITS STRIP
-         ================================================================ -->
+    <!-- BENEFITS -->
     <section class="benefits" aria-labelledby="benefits-title">
       <div class="container">
         <h2 id="benefits-title" class="sr-only">Why farmers use this tool</h2>
         <div class="benefits__grid">
-
           <article class="benefit">
             <span class="benefit__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 17l6-6 4 4 8-8"/>
-                <path d="M15 7h6v6"/>
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>
               </svg>
             </span>
-            <h3>More Production</h3>
-            <p>Healthy crops, higher yield every season.</p>
+            <h3 data-i18n="home.ben1.title">More Production</h3>
+            <p data-i18n="home.ben1.desc">Healthy crops, higher yield every season.</p>
           </article>
-
           <article class="benefit">
             <span class="benefit__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 3l8 3v6c0 5-3.4 8.3-8 9-4.6-.7-8-4-8-9V6l8-3Z"/>
                 <path d="M9 12l2 2 4-4"/>
               </svg>
             </span>
-            <h3>Less Loss</h3>
-            <p>Detect early, act fast before it spreads.</p>
+            <h3 data-i18n="home.ben2.title">Less Loss</h3>
+            <p data-i18n="home.ben2.desc">Detect early, act fast before it spreads.</p>
           </article>
-
           <article class="benefit">
             <span class="benefit__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="9" cy="8" r="3"/>
-                <path d="M2.5 20a6.5 6.5 0 0 1 13 0"/>
-                <path d="M17 11.2a2.6 2.6 0 1 0 0-5.2"/>
-                <path d="M18 20h4a5 5 0 0 0-3.6-4.8"/>
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="8" r="3"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/>
+                <path d="M17 11.2a2.6 2.6 0 1 0 0-5.2"/><path d="M18 20h4a5 5 0 0 0-3.6-4.8"/>
               </svg>
             </span>
-            <h3>Support Farmers</h3>
-            <p>Simple, affordable and reliable for everyone.</p>
+            <h3 data-i18n="home.ben3.title">Support Farmers</h3>
+            <p data-i18n="home.ben3.desc">Simple, affordable and reliable for everyone.</p>
           </article>
-
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <svg class="site-footer__wave" viewBox="0 0 1440 28" preserveAspectRatio="none" aria-hidden="true">
-      <path fill="currentColor"
-            d="M0 28h1440V14c-120 9-240 11-360 6s-240-13-360-13-240 13-360 13S120 23 0 14Z"/>
+      <path fill="currentColor" d="M0 28h1440V14c-120 9-240 11-360 6s-240-13-360-13-240 13-360 13S120 23 0 14Z"/>
     </svg>
     <div class="container site-footer__inner">
-      <p class="site-footer__slogan">Better Plants • Better Yields • A Greener Future</p>
-      <p class="site-footer__made">🌿 Made for Farmers</p>
+      <p class="site-footer__slogan" data-i18n="footer.slogan">Better Plants • Better Yields • A Greener Future</p>
+      <p class="site-footer__made" data-i18n="footer.made">🌿 Made for Farmers</p>
       <nav class="site-footer__links" aria-label="Footer">
-        <a href="index.html">Home</a>
-        <a href="check.html">Check Disease</a>
-        <a href="about.html">About</a>
-        <a href="help.html">Help</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="check.html" data-i18n="nav.check">Check Disease</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="help.html" data-i18n="nav.help">Help</a>
       </nav>
       <p class="site-footer__made">© <span data-current-year>2026</span> Crop Disease Identifier</p>
     </div>
