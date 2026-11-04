@@ -402,8 +402,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (min-width: 900px) {
-  .site-nav,
-  .badge-farmer { display: flex; }
+  .site-nav { display: flex; }
   .nav-toggle,
   .mobile-nav { display: none; }
   .brand { font-size: 1.1rem; margin-right: var(--sp-5); }
