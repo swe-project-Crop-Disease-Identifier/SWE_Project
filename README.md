@@ -124,7 +124,6 @@ const PAGES = {
   result: () => import('./result.js').then((m) => m.initResultPage),  // add this
 };
 ```
-
 Then in `result.js`:
 
 ```js
