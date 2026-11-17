@@ -1,0 +1,518 @@
+/* ==========================================================================
+   auth.css — Login & Registration pages
+   Crop Disease Identifier
+   --------------------------------------------------------------------------
+   Design: Glassmorphism card over aerial farmland background.
+   Matches existing site design tokens from style.css.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. PAGE SHELL
+   ========================================================================== */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  font-family: "Inter", "Poppins", system-ui, sans-serif;
+}
+
+/* ── Farmland background ── */
+.auth-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    url('../assets/images/backgorund.jpg') center / cover no-repeat;
+}
+/* Green-tinted overlay so card pops */
+.auth-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 60, 30, 0.45) 0%,
+    rgba(20, 100, 50, 0.30) 50%,
+    rgba(10, 60, 30, 0.50) 100%
+  );
+}
+
+/* Soft green ambient glow behind card */
+.auth-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    rgba(30, 142, 78, 0.18) 0%,
+    transparent 70%
+  );
+  z-index: 1;
+}
+
+/* ==========================================================================
+   2. GLASSMORPHISM CARD
+   ========================================================================== */
+.auth-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.70);
+  border-radius: 28px;
+  padding: 2.5rem 2.25rem 2.25rem;
+  box-shadow:
+    0 8px 32px rgba(10, 60, 30, 0.22),
+    0 2px 8px  rgba(10, 60, 30, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.80);
+  animation: cardIn .45s cubic-bezier(.22,.68,0,1.2) both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(28px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+
+/* ==========================================================================
+   3. CARD HEADER
+   ========================================================================== */
+.auth-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+/* Logo */
+.auth-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  margin-bottom: 1.25rem;
+}
+.auth-logo__img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+.auth-logo__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0F5132;
+  line-height: 1.2;
+}
+.auth-logo__name span {
+  display: block;
+  font-size: .72rem;
+  font-weight: 500;
+  color: #1E8E4E;
+  letter-spacing: .04em;
+}
+
+.auth-heading {
+  font-size: clamp(1.5rem, 4vw, 1.9rem);
+  font-weight: 800;
+  color: #0F5132;
+  margin: 0 0 .4rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: -.02em;
+}
+
+.auth-subheading {
+  font-size: .88rem;
+  color: #445A4E;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   4. FORM FIELDS
+   ========================================================================== */
+.auth-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.field-label {
+  font-size: .8rem;
+  font-weight: 600;
+  color: #0F5132;
+  letter-spacing: .02em;
+}
+.field-label .optional {
+  font-weight: 400;
+  color: #6E857A;
+  font-size: .75rem;
+}
+
+.field-wrap {
+  position: relative;
+}
+
+.auth-input {
+  width: 100%;
+  padding: .72rem 1rem;
+  font: inherit;
+  font-size: .93rem;
+  color: #16241D;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1.5px solid #D6EDE0;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color .18s, box-shadow .18s, background .18s;
+  box-sizing: border-box;
+}
+.auth-input::placeholder { color: #6E857A; }
+.auth-input:focus {
+  border-color: #1E8E4E;
+  background: #fff;
+  box-shadow: 0 0 0 3.5px rgba(30, 142, 78, .15);
+}
+.auth-input.is-error {
+  border-color: #C62828;
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, .12);
+}
+
+/* Password toggle eye button */
+.field-wrap--password .auth-input {
+  padding-right: 2.8rem;
+}
+.pw-toggle {
+  position: absolute;
+  right: .75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: .25rem;
+  cursor: pointer;
+  color: #6E857A;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  transition: color .15s;
+  line-height: 0;
+}
+.pw-toggle:hover { color: #1E8E4E; }
+.pw-toggle svg   { pointer-events: none; }
+
+/* Field error message */
+.field-error {
+  font-size: .75rem;
+  color: #C62828;
+  display: none;
+  align-items: center;
+  gap: .3rem;
+  animation: fadeIn .2s ease;
+}
+.field-error.is-visible { display: flex; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Password strength bar */
+.pw-strength {
+  display: flex;
+  gap: .3rem;
+  margin-top: .3rem;
+  height: 4px;
+}
+.pw-strength__bar {
+  flex: 1;
+  border-radius: 2px;
+  background: #E1EBE4;
+  transition: background .3s ease;
+}
+.pw-strength__bar.weak   { background: #C62828; }
+.pw-strength__bar.fair   { background: #F59E0B; }
+.pw-strength__bar.good   { background: #3B82F6; }
+.pw-strength__bar.strong { background: #1E8E4E; }
+
+/* ==========================================================================
+   5. CHECKBOX ROW
+   ========================================================================== */
+.auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: -.25rem;
+}
+
+.auth-checkbox {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .83rem;
+  color: #445A4E;
+  cursor: pointer;
+  user-select: none;
+}
+.auth-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #1E8E4E;
+  cursor: pointer;
+  border-radius: 4px;
+  flex: 0 0 auto;
+}
+.auth-checkbox a {
+  color: #1E8E4E;
+  font-weight: 600;
+  text-decoration: none;
+}
+.auth-checkbox a:hover { text-decoration: underline; }
+
+.auth-forgot {
+  font-size: .83rem;
+  color: #1E8E4E;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.auth-forgot:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   6. BUTTONS
+   ========================================================================== */
+
+/* Primary — green submit */
+.btn-auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  width: 100%;
+  padding: .82rem 1rem;
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #1E8E4E 0%, #0F5132 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  letter-spacing: .02em;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s;
+  box-shadow: 0 4px 14px rgba(30, 142, 78, .4);
+  margin-top: .25rem;
+  position: relative;
+  overflow: hidden;
+}
+.btn-auth:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(30, 142, 78, .45);
+  filter: brightness(1.06);
+}
+.btn-auth:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(30, 142, 78, .3);
+}
+.btn-auth:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+/* Loading spinner inside button */
+.btn-auth .spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255,255,255,.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  display: none;
+  flex: 0 0 auto;
+}
+.btn-auth.is-loading .spinner { display: block; }
+.btn-auth.is-loading .btn-label { opacity: .6; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* OR divider */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  color: #6E857A;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-block: .25rem;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #D6EDE0;
+}
+
+/* Social buttons */
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  width: 100%;
+  padding: .78rem 1rem;
+  font: inherit;
+  font-size: .88rem;
+  font-weight: 600;
+  color: #16241D;
+  background: #fff;
+  border: 1.5px solid #D6EDE0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, transform .15s, box-shadow .15s;
+  box-shadow: 0 1px 4px rgba(15,81,50,.06);
+}
+.btn-social:hover {
+  background: #F7FCF8;
+  border-color: #8FCEAC;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15,81,50,.1);
+}
+.btn-social img,
+.btn-social svg { flex: 0 0 auto; }
+
+/* Back to Home */
+.auth-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .82rem;
+  color: #6E857A;
+  text-decoration: none;
+  transition: color .15s;
+  margin-top: .5rem;
+  justify-content: center;
+  width: 100%;
+}
+.auth-back:hover { color: #1E8E4E; }
+
+/* Footer link */
+.auth-footer-text {
+  text-align: center;
+  font-size: .85rem;
+  color: #445A4E;
+  margin-top: .25rem;
+}
+.auth-footer-text a {
+  color: #1E8E4E;
+  font-weight: 700;
+  text-decoration: none;
+}
+.auth-footer-text a:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   7. GLOBAL ERROR TOAST (top of card)
+   ========================================================================== */
+.auth-alert {
+  display: none;
+  align-items: flex-start;
+  gap: .6rem;
+  padding: .75rem 1rem;
+  border-radius: 10px;
+  font-size: .85rem;
+  line-height: 1.5;
+  margin-bottom: .75rem;
+  animation: fadeIn .25s ease;
+}
+.auth-alert.is-visible { display: flex; }
+.auth-alert--error {
+  background: #FDEDED;
+  border: 1px solid #F5C6C6;
+  color: #C62828;
+}
+.auth-alert--success {
+  background: #EAF6EE;
+  border: 1px solid #D6EDE0;
+  color: #0F5132;
+}
+.auth-alert svg { flex: 0 0 auto; margin-top: 1px; }
+
+/* ==========================================================================
+   8. LANGUAGE TOGGLE (matches existing site)
+   ========================================================================== */
+.auth-lang {
+  position: fixed;
+  top: 1.1rem;
+  right: 1.25rem;
+  z-index: 10;
+}
+.auth-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .35rem .9rem;
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #0F5132;
+  background: rgba(255,255,255,.88);
+  border: 1.5px solid rgba(143, 206, 172, .7);
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: background .15s, transform .1s;
+  letter-spacing: .03em;
+}
+.auth-lang-btn:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   9. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 2rem 1.35rem 1.75rem;
+    border-radius: 22px;
+    max-width: 100%;
+  }
+  .auth-heading { font-size: 1.5rem; }
+  .auth-row { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 360px) {
+  .auth-card { padding: 1.6rem 1rem 1.5rem; }
+}
+
+/* Tablets — wider card */
+@media (min-width: 640px) {
+  .auth-card { max-width: 460px; }
+}
+
+/* Register page — slightly wider for more fields */
+.auth-card--register {
+  max-width: 480px;
+}
+
+/* Two-column row for password + confirm password */
+@media (min-width: 480px) {
+  .field-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}

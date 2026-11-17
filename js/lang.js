@@ -17,6 +17,7 @@ export const TRANSLATIONS = {
   'nav.about':           { en: 'About',         bn: 'পরিচিতি' },
   'nav.help':            { en: 'Help',          bn: 'সাহায্য' },
   'nav.farmer':          { en: 'Farmer Friendly', bn: 'কৃষক বান্ধব' },
+  'nav.login':           { en: 'Login',         bn: 'লগইন' },
   'lang.switch.to.bn':   { en: 'বাংলা', bn: 'বাংলা' },
   'lang.switch.to.en':   { en: 'English', bn: 'English' },
 
