@@ -1,0 +1,333 @@
+/* ==========================================================================
+   dashboard.css — Registered User Dashboard
+   Crop Disease Identifier
+   Inherits design tokens from style.css (loaded before this file).
+   ========================================================================== */
+
+/* ==========================================================================
+   1. PAGE SHELL
+   ========================================================================== */
+.dash-page {
+  min-height: calc(100vh - var(--header-h));
+  background: linear-gradient(160deg, var(--page-a) 0%, var(--page-b) 100%);
+  padding-block: var(--sp-6) var(--sp-8);
+}
+
+/* ==========================================================================
+   2. PAGE HEADER (welcome strip)
+   ========================================================================== */
+.dash-header {
+  background: linear-gradient(120deg, var(--green-900) 0%, var(--green-700) 100%);
+  color: #fff;
+  padding: var(--sp-6) 0;
+  margin-bottom: var(--sp-6);
+}
+.dash-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+}
+.dash-header__text h1 {
+  font-size: clamp(1.4rem, 1rem + 2vw, 2rem);
+  color: #fff;
+  margin-bottom: var(--sp-1);
+}
+.dash-header__text p {
+  color: rgba(255,255,255,.75);
+  font-size: var(--fs-sm);
+  margin: 0;
+}
+.dash-header__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  border: 2px solid rgba(255,255,255,.4);
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  color: #fff;
+  flex: 0 0 auto;
+}
+
+/* ==========================================================================
+   3. STAT CARDS ROW
+   ========================================================================== */
+.dash-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+.dash-stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: var(--sp-4) var(--sp-5);
+  box-shadow: var(--sh-1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.dash-stat:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-2);
+}
+.dash-stat__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  background: var(--green-050);
+  flex: 0 0 auto;
+}
+.dash-stat__label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+.dash-stat__value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--green-900);
+  line-height: 1;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ==========================================================================
+   4. TWO-COLUMN LAYOUT (history + profile)
+   ========================================================================== */
+.dash-grid {
+  display: grid;
+  gap: var(--sp-5);
+}
+@media (min-width: 860px) {
+  .dash-grid { grid-template-columns: 1fr 340px; align-items: start; }
+}
+
+/* ==========================================================================
+   5. SECTION CARD
+   ========================================================================== */
+.dash-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-1);
+  overflow: hidden;
+}
+.dash-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1px solid var(--line);
+  background: var(--green-050);
+}
+.dash-card__title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--green-900);
+  margin: 0;
+}
+.dash-card__body {
+  padding: var(--sp-4) var(--sp-5);
+}
+
+/* ==========================================================================
+   6. DETECTION HISTORY LIST
+   ========================================================================== */
+.history-empty {
+  text-align: center;
+  padding: var(--sp-6) var(--sp-4);
+  color: var(--ink-mute);
+}
+.history-empty__icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: var(--sp-3);
+}
+.history-empty p { font-size: var(--fs-sm); margin: 0; }
+
+.history-list {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--green-050);
+  border: 1px solid var(--green-100);
+  border-radius: var(--r-md);
+  transition: box-shadow .18s ease;
+}
+.history-item:hover { box-shadow: var(--sh-1); }
+
+.history-item__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-sm);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  flex: 0 0 auto;
+  box-shadow: var(--sh-1);
+}
+.history-item__info { flex: 1; min-width: 0; }
+.history-item__disease {
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--green-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.history-item__meta {
+  font-size: var(--fs-xs);
+  color: var(--ink-mute);
+  margin-top: 2px;
+}
+.history-item__badge {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: var(--green-700);
+  color: #fff;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.history-item__badge--low { background: #F59E0B; }
+
+/* ==========================================================================
+   7. PROFILE CARD
+   ========================================================================== */
+.profile-info {
+  display: grid;
+  gap: var(--sp-3);
+}
+.profile-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.profile-row__label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+.profile-row__value {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--green-900);
+  word-break: break-all;
+}
+
+/* ==========================================================================
+   8. QUICK ACTION BUTTONS
+   ========================================================================== */
+.dash-actions {
+  display: grid;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+.dash-action-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--green-900);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .15s, border-color .15s, transform .15s;
+  text-align: left;
+}
+.dash-action-btn:hover {
+  background: var(--green-050);
+  border-color: var(--green-300);
+  transform: translateX(3px);
+  text-decoration: none;
+  color: var(--green-900);
+}
+.dash-action-btn__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-sm);
+  background: var(--green-050);
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  color: var(--green-700);
+}
+.dash-action-btn--danger { color: var(--danger); }
+.dash-action-btn--danger .dash-action-btn__icon {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+.dash-action-btn--danger:hover {
+  background: var(--danger-bg);
+  border-color: var(--danger-line);
+  color: var(--danger);
+}
+
+/* ==========================================================================
+   9. GUEST REDIRECT SCREEN (shown when not logged in)
+   ========================================================================== */
+.dash-guest {
+  max-width: 420px;
+  margin: var(--sp-8) auto;
+  text-align: center;
+  padding: var(--sp-7) var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-2);
+}
+.dash-guest__icon { font-size: 3rem; margin-bottom: var(--sp-4); }
+.dash-guest h2 {
+  font-size: var(--fs-h3);
+  color: var(--green-900);
+  margin-bottom: var(--sp-2);
+}
+.dash-guest p {
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--sp-5);
+  line-height: 1.6;
+}
+.dash-guest__btns {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+/* ==========================================================================
+   10. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 600px) {
+  .dash-header { padding-block: var(--sp-5); }
+  .dash-stats   { grid-template-columns: 1fr 1fr; }
+  .dash-card__body { padding: var(--sp-3) var(--sp-4); }
+}

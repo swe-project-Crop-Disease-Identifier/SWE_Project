@@ -3,14 +3,16 @@
    Crop Disease Identifier
    --------------------------------------------------------------------------
    Handles:
-   - EN ↔ Bangla language switching (mirrors main site lang.js)
+   - EN ↔ Bangla language switching
    - Form validation (email, password, confirm, name, terms)
-   - Password visibility toggle
-   - Password strength meter (register page)
-   - Remember Me (email persisted in localStorage — NOT password)
+   - Password visibility toggle + strength meter (register)
+   - Remember Me (email only — never the password)
    - Loading / disabled state on submit buttons
-   - API-ready form submission stubs (see ⚠️ API PLACEHOLDER comments)
+   - Saving user to session.js on success
+   - API-ready stubs (see ⚠️ API PLACEHOLDER comments)
    ========================================================================== */
+
+import { login as saveSession } from './session.js';
 
 /* ==========================================================================
    1. TRANSLATIONS
@@ -66,6 +68,9 @@ const T = {
   'auth.register.btn':     { en: 'Create Account',                        bn: 'অ্যাকাউন্ট তৈরি করুন' },
   'auth.has.account':      { en: 'Already have an account?',              bn: 'ইতিমধ্যে অ্যাকাউন্ট আছে?' },
   'auth.login.link':       { en: ' Log In',                               bn: ' লগইন করুন' },
+
+  /* ── Guest ── */
+  'auth.guest.btn':        { en: 'Continue as Guest',                     bn: 'অতিথি হিসেবে চালিয়ে যান' },
 };
 
 /* ==========================================================================
@@ -271,11 +276,19 @@ function initLoginPage() {
          const data = await res.json();
          if (!res.ok) throw new Error(data.error || 'Login failed');
          localStorage.setItem('cdi.token', data.token);
-         window.location.href = 'index.html';
+         saveSession(data.user);
+         window.location.href = 'dashboard.html';
       ─────────────────────────────────────────────────────────────────── */
 
-      /* TEMP: redirect to home after mock delay */
-      window.location.href = 'index.html';
+      /* TEMP: mock user object until backend is ready */
+      const mockUser = {
+        id:           'mock-' + Date.now(),
+        name:         email.split('@')[0],
+        email:        email,
+        registeredAt: new Date().toISOString(),
+      };
+      saveSession(mockUser);
+      window.location.href = 'dashboard.html';
 
     } catch (err) {
       showGlobalAlert(err.message || 'Login failed. Please try again.');
@@ -389,16 +402,24 @@ function initRegisterPage() {
          const res = await fetch('/api/auth/register', {
            method: 'POST',
            headers: { 'Content-Type': 'application/json' },
-           body: JSON.stringify({ name, email, phone, password }),
+           body: JSON.stringify({ name, email, password }),
          });
          const data = await res.json();
          if (!res.ok) throw new Error(data.error || 'Registration failed');
          localStorage.setItem('cdi.token', data.token);
-         window.location.href = 'index.html';
+         saveSession(data.user);
+         window.location.href = 'dashboard.html';
       ─────────────────────────────────────────────────────────────────── */
 
-      /* TEMP: redirect to login after mock delay */
-      window.location.href = 'login.html';
+      /* TEMP: mock user object until backend is ready */
+      const mockUser = {
+        id:           'mock-' + Date.now(),
+        name:         name,
+        email:        email,
+        registeredAt: new Date().toISOString(),
+      };
+      saveSession(mockUser);
+      window.location.href = 'dashboard.html';
 
     } catch (err) {
       showGlobalAlert(err.message || 'Registration failed. Please try again.');

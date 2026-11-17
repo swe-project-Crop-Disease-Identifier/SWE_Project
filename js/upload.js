@@ -20,6 +20,7 @@ import {
 } from './config.js';
 
 import { predictDisease } from './api.js';
+import { saveDetection }   from './session.js';
 
 /* ==========================================================================
    initCheckPage — called once by main.js
@@ -148,6 +149,9 @@ export function initCheckPage() {
     setBusy(true);
 
     const result = await predictDisease(cropSelect.value);
+
+    /* Save to history for logged-in users (guests: silently skipped) */
+    saveDetection(result);
 
     sessionStorage.setItem(STORAGE.RESULT,  JSON.stringify(result));
     sessionStorage.setItem(STORAGE.PREVIEW, compressedFile.previewDataUrl);

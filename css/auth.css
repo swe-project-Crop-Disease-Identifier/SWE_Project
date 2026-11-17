@@ -516,3 +516,33 @@
     gap: 1rem;
   }
 }
+
+
+/* ==========================================================================
+   Guest button — login page
+   ========================================================================== */
+.btn-guest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  width: 100%;
+  padding: .78rem 1rem;
+  font: inherit;
+  font-size: .88rem;
+  font-weight: 600;
+  color: #445A4E;
+  background: transparent;
+  border: 1.5px dashed #8FCEAC;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background .15s, border-color .15s, color .15s, transform .15s;
+  margin-bottom: .5rem;
+}
+.btn-guest:hover {
+  background: #EAF6EE;
+  border-color: #1E8E4E;
+  color: #0F5132;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
